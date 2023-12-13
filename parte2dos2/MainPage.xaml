@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="parte2dos2.MainPage"
+             Title="Productos">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="Nombre de la fruta:"
+Margin="15,0"/>
+            <Entry x:Name="valor" Margin="15,0"/>
+            <Label Text="URL de imagen de la fruta" Margin="15,0"/>
+            <Entry x:Name="direccionurl" Margin="15,0"/>
+            <Button Text="Agregar" CornerRadius="24" BackgroundColor="Orange"
+Clicked="Button_Clicked" Margin="15,1"/>
+            <ListView x:Name="milista"
+ItemTapped="milista_ItemTapped"
+SeparatorColor="Coral" RowHeight="100"
+Margin="15,1"
+>
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell >
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="MenuItem_Clicked"
+Text="Mostrar" />
+                                <MenuItem Clicked="MenuItem_Clicked_1"
+CommandParameter="{Binding Nombre}"
+Text="Borrar" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+
+                            <StackLayout Orientation="Horizontal" Padding="10">
+
+                                <Image Source="{Binding Url}"
+HeightRequest="80"/>
+                                <StackLayout Padding="15,0">
+                                    <Label Text="Valor del elemento:"/>
+                                    <Label Text="{Binding Nombre}" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
